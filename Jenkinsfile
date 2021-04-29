@@ -19,7 +19,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
-                    docker image build --tag test1:2.0 .
+                    docker image build --tag test1:latest .
                 '''
             }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    docker container run --name getdeckapi test1:2.0
+                    docker run -d --name getdeckapi -p 9090:5000 test1:latest
                 '''
             }
         }
