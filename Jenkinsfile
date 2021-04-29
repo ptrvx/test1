@@ -24,7 +24,14 @@ pipeline {
             }
         }
         
-        
+        stage('Stop') {
+            steps {
+                sh '''
+                    docker container stop getdeckapi
+                    docker container rm getdeckapi
+                '''
+            }
+        }
         
         stage('Deploy') {
             steps {
