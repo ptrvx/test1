@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def Main():
-    return 'Welcome to the Test API'
+    return 'Welcome to the Updated Test API'
 
 @app.route('/test', methods=['GET'])
 def GetAll():
